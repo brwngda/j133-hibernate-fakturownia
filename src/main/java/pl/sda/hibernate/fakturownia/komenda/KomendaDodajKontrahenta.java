@@ -2,32 +2,33 @@ package pl.sda.hibernate.fakturownia.komenda;
 
 import pl.sda.hibernate.fakturownia.database.DataAccessObject;
 import pl.sda.hibernate.fakturownia.model.Firma;
+import pl.sda.hibernate.fakturownia.model.Kontrahent;
 
-public class KomendaDodajFirme implements Komenda {
-    private DataAccessObject<Firma> dao = new DataAccessObject<>();
+public class KomendaDodajKontrahenta implements Komenda {
+    private DataAccessObject<Kontrahent> dao = new DataAccessObject<>();
 
     @Override
     public String getKomenda() {
-        return "dodaj firma";
+        return "dodaj kontrahenta";
     }
 
     @Override
     public void obsluga() {
-        System.out.println("Podaj nazwe firmy:");
+        System.out.println("Podaj nazwe kontrahenta:");
         String nazwa = Komenda.scanner.nextLine();
 
-        System.out.println("Podaj NIP firmy:");
+        System.out.println("Podaj NIP kontrahenta:");
         String nip = Komenda.scanner.nextLine();
 
-        System.out.println("Podaj adres firmy:");
+        System.out.println("Podaj adres kontrahenta:");
         String adres = Komenda.scanner.nextLine();
 
-        Firma firma = Firma.builder()
+        Kontrahent kontrahent = Kontrahent.builder()
                 .nazwa(nazwa)
                 .nip(nip)
                 .adres(adres)
                 .build();
 
-        dao.insert(firma);
+        dao.insert(kontrahent);
     }
 }

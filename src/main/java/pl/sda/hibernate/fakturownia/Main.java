@@ -1,8 +1,7 @@
 package pl.sda.hibernate.fakturownia;
 
 import pl.sda.hibernate.fakturownia.database.DataAccessObject;
-import pl.sda.hibernate.fakturownia.komenda.Komenda;
-import pl.sda.hibernate.fakturownia.komenda.KomendaDodajFirme;
+import pl.sda.hibernate.fakturownia.komenda.*;
 import pl.sda.hibernate.fakturownia.model.Firma;
 
 import java.util.List;
@@ -15,7 +14,18 @@ public class Main {
 //   new DataAccessObject<Firma>().findAll(Firma.class);
 
         List<Komenda> listaKomend = List.of(
-                new KomendaDodajFirme()
+                new KomendaDodajFirme(),
+                new KomendaDodajKontrahenta(),
+                new KomendaDodajFaktura(),
+                new KomendaDodajPlatnosc(),
+                new KomendaListaFirma(),
+                new KomendaListaKontrahent(),
+                new KomendaListaFaktura(),
+                new KomendaListaPlatnosc(),
+                new KomendaUsunFirma(),
+                new KomendaUsunKontrahent(),
+                new KomendaUsunFaktura(),
+                new KomendaUsunPlatnosc()
         );
 
         String komenda;
